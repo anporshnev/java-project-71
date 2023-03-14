@@ -5,6 +5,7 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 import picocli.CommandLine.Option;
 
+import java.util.concurrent.Callable;
 
 
 @Command(
@@ -13,8 +14,7 @@ import picocli.CommandLine.Option;
         description = "Compares two configuration files and shows a difference."
 )
 
-public class App {
-
+public class App implements Callable<Integer>{
     @Parameters(paramLabel = "filepath1", description = "path to first file")
     private String filepath1;
 
@@ -24,8 +24,14 @@ public class App {
     @Option(names = {"-f", "--format"}, description = "output format [default: stylish]")
     private String format;
 
+    @Override
+    public Integer call() throws Exception {
+        Differ.generate(filepath1, filepath2);
+        return 0;
+    }
+
     public static void main(String[] args) {
-        var line = new CommandLine(new App()).execute(args);
-        System.exit(line);
+        int exitCode = new CommandLine(new App()).execute(args);
+        System.exit(exitCode);
     }
 }
