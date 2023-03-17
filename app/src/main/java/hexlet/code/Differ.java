@@ -24,7 +24,7 @@ public class Differ {
         for (String item: keys) {
             if (data1.containsKey(item) && data2.containsKey(item)) {
                 if (data1.get(item).equals(data2.get(item))) {
-                    result.append("  %s: %s\n".formatted(item, data1.get(item)));
+                    result.append("    %s: %s\n".formatted(item, data1.get(item)));
                 } else {
                     result.append(computeDiffItem(item, data1.get(item), "del"));
                     result.append(computeDiffItem(item, data2.get(item), "add"));
@@ -56,10 +56,10 @@ public class Differ {
     private static String computeDiffItem(String key, Object value, String type) {
         String result = "";
         if (type.equals("add")) {
-            result = "+ %s: %s\n".formatted(key, value);
+            result = "  + %s: %s\n".formatted(key, value);
         }
         if (type.equals("del")) {
-            result = "- %s: %s\n".formatted(key, value);
+            result = "  - %s: %s\n".formatted(key, value);
         }
         return result;
     }
