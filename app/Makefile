@@ -13,3 +13,8 @@ run:
 
 test:
 	./gradlew test
+
+build:
+	./gradlew clean build
+
+.PHONY: build
