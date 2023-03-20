@@ -14,6 +14,9 @@ run:
 test:
 	./gradlew test
 
+report:
+	./gradlew jacocoTestReport
+
 build:
 	./gradlew clean build
 
