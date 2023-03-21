@@ -9,7 +9,7 @@ import java.util.Map;
 public class JsonParser implements DataGenerator {
     @Override
     public Map<String, Object> parse(String content) throws JsonProcessingException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(content, new TypeReference<>() { });
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(content, new TypeReference<>() { });
     }
 }

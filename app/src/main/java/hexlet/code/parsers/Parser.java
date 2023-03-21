@@ -31,7 +31,7 @@ public class Parser {
                 return new JsonParser();
             }
             case "yml" -> {
-                return new YmlParser();
+                return new YamlParser();
             }
             default -> throw new Exception("Unsupported file extension");
         }
