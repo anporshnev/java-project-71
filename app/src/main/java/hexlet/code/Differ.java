@@ -1,20 +1,15 @@
 package hexlet.code;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import hexlet.code.parsers.Parser;
 
 public class Differ {
     public static String generate(String filepath1, String filepath2) throws Exception {
-        Map<String, Object> data1 = getData(filepath1);
-        Map<String, Object> data2 = getData(filepath2);
+        Map<String, Object> data1 = Parser.getData(filepath1);
+        Map<String, Object> data2 = Parser.getData(filepath2);
 
         StringBuilder result = new StringBuilder();
         result.append("{\n");
@@ -37,20 +32,6 @@ public class Differ {
         }
         result.append("}");
         return result.toString();
-    }
-
-    private static String getFileContent(String filepath) throws Exception {
-        Path path = Paths.get(filepath).toAbsolutePath().normalize();
-        if (!Files.exists(path)) {
-            throw new Exception("File '" + path + "' does not exist");
-        }
-        return Files.readString(path);
-    }
-
-    private static Map<String, Object> getData(String filepath) throws Exception {
-        var content = getFileContent(filepath);
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(content, new TypeReference<>() { });
     }
 
     private static String computeDiffItem(String key, Object value, String type) {
