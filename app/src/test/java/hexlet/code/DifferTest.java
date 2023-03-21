@@ -1,8 +1,10 @@
 package hexlet.code;
 
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -10,13 +12,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class DifferTest {
+    static String expectedStylish;
+
+    @BeforeAll
+    public static void initExpected() throws IOException {
+        Path expectedFilePath = Path.of("src/test/resources/expectedStylish").toAbsolutePath();
+        expectedStylish = Files.readString(expectedFilePath).trim();
+    }
+
     @Test
     public void generateDiffJsonTest() throws Exception {
         var filePath1 = "src/test/resources/json/file1.json";
         var filePath2 = "src/test/resources/json/file2.json";
 
-        Path expectedFilePath = Path.of("src/test/resources/expectedStylish").toAbsolutePath();
-        var expected = Files.readString(expectedFilePath).trim();
-        assertEquals(expected, Differ.generate(filePath1, filePath2));
+        assertEquals(expectedStylish, Differ.generate(filePath1, filePath2));
+    }
+
+    @Test
+    public void generateDiffYamlTest() throws Exception {
+        var filePath1 = "src/test/resources/yaml/file1.yml";
+        var filePath2 = "src/test/resources/yaml/file2.yml";
+
+        assertEquals(expectedStylish, Differ.generate(filePath1, filePath2));
     }
 }
