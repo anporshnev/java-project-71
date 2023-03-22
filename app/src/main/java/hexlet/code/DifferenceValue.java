@@ -30,6 +30,6 @@ public class DifferenceValue {
 
     public String toString() {
         return "status: %s, value1: %s, value2: %s"
-                .formatted(getStatus(), getValue1(), getValue2() == null ? getValue2() : "-");
+                .formatted(getStatus(), getValue1(), getValue2() == null ? "none" : getValue2());
     }
 }
