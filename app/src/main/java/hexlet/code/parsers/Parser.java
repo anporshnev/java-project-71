@@ -26,14 +26,10 @@ public class Parser {
         }
     }
     private static DataGenerator getParser(String extension) throws Exception {
-        switch (extension) {
-            case "json" -> {
-                return new JsonParser();
-            }
-            case "yml" -> {
-                return new YamlParser();
-            }
+        return switch (extension) {
+            case "json" -> new JsonParser();
+            case "yml" -> new YamlParser();
             default -> throw new Exception("Unsupported file extension");
-        }
+        };
     }
 }
