@@ -27,4 +27,9 @@ public class DifferenceValue {
     public String getStatus() {
         return status;
     }
+
+    public String toString() {
+        return "status: %s, value1: %s, value2: %s"
+                .formatted(getStatus(), getValue1(), getValue2() == null ? getValue2() : "-");
+    }
 }
