@@ -31,10 +31,10 @@ public class Differ {
                 if (Objects.equals(value1, value2)) {
                     diff.put(key, new DifferenceValue("unchanged", value1));
                 } else {
-                    diff.put(key, new DifferenceValue("changed", value1, value2));
+                    diff.put(key, new DifferenceValue("updated", value1, value2));
                 }
             } else if (data1.containsKey(key)) {
-                diff.put(key, new DifferenceValue("deleted", value1));
+                diff.put(key, new DifferenceValue("removed", value1));
             } else {
                 diff.put(key, new DifferenceValue("added", value2));
             }

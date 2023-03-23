@@ -14,12 +14,12 @@ public class StylishFormatter implements FormatBuilder {
         result.append("{\n");
         data.forEach((k, v) -> {
             switch (v.getStatus()) {
-                case "changed" -> {
+                case "updated" -> {
                     result.append(computeRow(k, v.getValue1(), "del"));
                     result.append(computeRow(k, v.getValue2(), "add"));
                 }
                 case "added" -> result.append(computeRow(k, v.getValue1(), "add"));
-                case "deleted" -> result.append(computeRow(k, v.getValue1(), "del"));
+                case "removed" -> result.append(computeRow(k, v.getValue1(), "del"));
                 default -> result.append(computeRow(k, v.getValue1()));
             }
         });
