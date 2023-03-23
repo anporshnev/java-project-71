@@ -7,7 +7,7 @@ import java.util.Map;
 
 
 
-public class PlainFormatter implements FormatBuilder{
+public class PlainFormatter implements FormatBuilder {
     @Override
     public String format(Map<String, DifferenceValue> data) {
         StringBuilder result = new StringBuilder();

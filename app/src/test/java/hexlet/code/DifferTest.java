@@ -12,10 +12,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class DifferTest {
-    private final String JSON_FILE_PATH_1 = "src/test/resources/json/file1.json";
-    private final String JSON_FILE_PATH_2 = "src/test/resources/json/file2.json";
-    private final String YAML_FILE_PATH_1 = "src/test/resources/yaml/file1.yml";
-    private final String YAML_FILE_PATH_2 = "src/test/resources/yaml/file2.yml";
+    private final String jsonFilePath1 = "src/test/resources/json/file1.json";
+    private final String jsonFilePath2 = "src/test/resources/json/file2.json";
+    private final String yamlFilePath1 = "src/test/resources/yaml/file1.yml";
+    private final String yamlFilePath2 = "src/test/resources/yaml/file2.yml";
 
     private static String expectedStylish;
     private static String expectedPlain;
@@ -30,21 +30,21 @@ public class DifferTest {
 
     @Test
     public void generateDiffJsonToStylishTest() throws Exception {
-        assertEquals(expectedStylish, Differ.generate(JSON_FILE_PATH_1, JSON_FILE_PATH_2, "stylish"));
+        assertEquals(expectedStylish, Differ.generate(jsonFilePath1, jsonFilePath2, "stylish"));
     }
 
     @Test
     public void generateDiffYamlToStylishTest() throws Exception {
-        assertEquals(expectedStylish, Differ.generate(YAML_FILE_PATH_1, YAML_FILE_PATH_2, "stylish"));
+        assertEquals(expectedStylish, Differ.generate(yamlFilePath1, yamlFilePath2, "stylish"));
     }
 
     @Test
     public void generateDiffJsonToPlainTest() throws Exception {
-        assertEquals(expectedPlain, Differ.generate(JSON_FILE_PATH_1, JSON_FILE_PATH_2, "plain"));
+        assertEquals(expectedPlain, Differ.generate(jsonFilePath1, jsonFilePath2, "plain"));
     }
 
     @Test
     public void generateDiffYamlToPlainTest() throws Exception {
-        assertEquals(expectedPlain, Differ.generate(YAML_FILE_PATH_1, YAML_FILE_PATH_2, "plain"));
+        assertEquals(expectedPlain, Differ.generate(yamlFilePath1, yamlFilePath2, "plain"));
     }
 }
