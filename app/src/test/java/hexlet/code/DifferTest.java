@@ -45,6 +45,6 @@ public class DifferTest {
 
     @Test
     public void generateDiffYamlToPlainTest() throws Exception {
-        assertEquals(expectedPlain, Differ.generate(YAML_FILE_PATH_1, YAML_FILE_PATH_2, "stylish"));
+        assertEquals(expectedPlain, Differ.generate(YAML_FILE_PATH_1, YAML_FILE_PATH_2, "plain"));
     }
 }
