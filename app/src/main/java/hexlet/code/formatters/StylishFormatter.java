@@ -6,7 +6,6 @@ import java.util.Map;
 
 
 public class StylishFormatter implements FormatBuilder {
-
     @Override
     public String format(Map<String, DifferenceValue> data) {
         StringBuilder result = new StringBuilder();
@@ -27,6 +26,7 @@ public class StylishFormatter implements FormatBuilder {
 
         return result.toString();
     }
+
     private static String computeRow(String key, Object value, String type) {
         return switch (type) {
             case "add" -> "  + %s: %s\n".formatted(key, value);
@@ -34,6 +34,7 @@ public class StylishFormatter implements FormatBuilder {
             default -> "    %s: %s\n".formatted(key, value);
         };
     }
+
     private static String computeRow(String key, Object value) {
         return computeRow(key, value, "default");
     }

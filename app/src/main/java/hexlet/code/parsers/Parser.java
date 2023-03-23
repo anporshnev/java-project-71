@@ -13,11 +13,13 @@ public class Parser {
         }
         return Files.readString(path);
     }
+
     public static Map<String, Object> getData(String filepath) throws Exception {
         var content = getFileContent(filepath);
         var parser = getParser(getFileExtension(filepath));
         return parser.parse(content);
     }
+
     private static String getFileExtension(String path) throws Exception {
         if (path.lastIndexOf(".") != -1) {
             return path.substring(path.lastIndexOf(".") + 1);
@@ -25,6 +27,7 @@ public class Parser {
             throw new Exception("Unknown file extension");
         }
     }
+
     private static DataGenerator getParser(String extension) throws Exception {
         return switch (extension) {
             case "json" -> new JsonParser();

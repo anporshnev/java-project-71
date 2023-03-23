@@ -35,6 +35,7 @@ public class PlainFormatter implements FormatBuilder {
             default -> "";
         };
     }
+
     private static Object checkValue(Object value) {
         if (value == null) {
             return "null";

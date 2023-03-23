@@ -16,7 +16,6 @@ public class DifferTest {
     private final String jsonFilePath2 = "src/test/resources/json/file2.json";
     private final String yamlFilePath1 = "src/test/resources/yaml/file1.yml";
     private final String yamlFilePath2 = "src/test/resources/yaml/file2.yml";
-
     private static String expectedStylish;
     private static String expectedPlain;
 
