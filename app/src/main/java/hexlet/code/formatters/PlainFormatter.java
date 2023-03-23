@@ -17,11 +17,12 @@ public class PlainFormatter implements FormatBuilder{
             }
             result.append(computeRow(k, v));
         });
-        return result.toString();
+
+        return result.toString().trim();
     }
 
     private static String computeRow(String key, DifferenceValue value) {
-        return "Property '%s' was %s %s".formatted(key, value.getStatus(), getChanges(value));
+        return "Property '%s' was %s%s\n".formatted(key, value.getStatus(), getChanges(value));
     }
 
     private static String getChanges(DifferenceValue value) {
