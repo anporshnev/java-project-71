@@ -7,7 +7,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 
 import java.util.Map;
 
-public class YamlParser implements DataGenerator {
+public final class YamlParser implements DataGenerator {
     @Override
     public Map<String, Object> parse(String content) throws JsonProcessingException {
         ObjectMapper mapper = new YAMLMapper();

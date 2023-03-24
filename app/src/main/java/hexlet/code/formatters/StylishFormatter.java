@@ -5,7 +5,7 @@ import hexlet.code.DifferenceValue;
 import java.util.Map;
 
 
-public class StylishFormatter implements FormatBuilder {
+public final class StylishFormatter implements FormatBuilder {
     @Override
     public String format(Map<String, DifferenceValue> data) {
         StringBuilder result = new StringBuilder();

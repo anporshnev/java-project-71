@@ -6,7 +6,7 @@ import hexlet.code.DifferenceValue;
 
 import java.util.Map;
 
-public class JsonFormatter implements FormatBuilder {
+public final class JsonFormatter implements FormatBuilder {
     @Override
     public String format(Map<String, DifferenceValue> data) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
