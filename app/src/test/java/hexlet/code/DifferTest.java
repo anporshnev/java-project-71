@@ -26,7 +26,7 @@ public class DifferTest {
         Path expectedPlainFilePath = Path.of("src/test/resources/expectedPlain").toAbsolutePath();
         Path expectedJsonFilePath = Path.of("src/test/resources/expectedJson.json").toAbsolutePath();
         expectedStylish = Files.readString(expectedStylishFilePath).trim();
-        expectedPlain = Files.readString(expectedPlainFilePath).trim();
+        expectedPlain = Files.readString(expectedPlainFilePath);
         expectedJson = Files.readString(expectedJsonFilePath);
     }
 
@@ -52,7 +52,6 @@ public class DifferTest {
 
     @Test
     public void generateDiffJsonToJsonTest() throws Exception {
-//        System.out.println(Differ.generate(jsonFilePath1, jsonFilePath2, "json"));
         assertEquals(expectedJson, Differ.generate(jsonFilePath1, jsonFilePath2, "json"));
     }
 
