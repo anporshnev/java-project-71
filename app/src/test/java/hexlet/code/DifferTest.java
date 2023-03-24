@@ -18,13 +18,16 @@ public class DifferTest {
     private final String yamlFilePath2 = "src/test/resources/yaml/file2.yml";
     private static String expectedStylish;
     private static String expectedPlain;
+    private static String expectedJson;
 
     @BeforeAll
     public static void initExpected() throws IOException {
         Path expectedStylishFilePath = Path.of("src/test/resources/expectedStylish").toAbsolutePath();
         Path expectedPlainFilePath = Path.of("src/test/resources/expectedPlain").toAbsolutePath();
+        Path expectedJsonFilePath = Path.of("src/test/resources/expectedJson.json").toAbsolutePath();
         expectedStylish = Files.readString(expectedStylishFilePath).trim();
         expectedPlain = Files.readString(expectedPlainFilePath).trim();
+        expectedJson = Files.readString(expectedJsonFilePath);
     }
 
     @Test
@@ -45,5 +48,16 @@ public class DifferTest {
     @Test
     public void generateDiffYamlToPlainTest() throws Exception {
         assertEquals(expectedPlain, Differ.generate(yamlFilePath1, yamlFilePath2, "plain"));
+    }
+
+    @Test
+    public void generateDiffJsonToJsonTest() throws Exception {
+//        System.out.println(Differ.generate(jsonFilePath1, jsonFilePath2, "json"));
+        assertEquals(expectedJson, Differ.generate(jsonFilePath1, jsonFilePath2, "json"));
+    }
+
+    @Test
+    public void generateDiffYamlToJsonTest() throws Exception {
+        assertEquals(expectedJson, Differ.generate(yamlFilePath1, yamlFilePath2, "json"));
     }
 }
