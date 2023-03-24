@@ -19,6 +19,10 @@ public class Differ {
         return formatter.format(diff);
     }
 
+    public static String generate(String filepath1, String filepath2) throws Exception {
+        return generate(filepath1, filepath2, "stylish");
+    }
+
     public static Map<String, DifferenceValue> computeDiff(Map<String, Object> data1, Map<String, Object> data2) {
         Map<String, DifferenceValue> diff = new TreeMap<>();
         Set<String> keys = new HashSet<>(data1.keySet());
