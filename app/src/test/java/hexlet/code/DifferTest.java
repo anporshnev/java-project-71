@@ -32,12 +32,12 @@ public class DifferTest {
 
     @Test
     public void generateDiffJsonToStylishTest() throws Exception {
-        assertEquals(expectedStylish, Differ.generate(jsonFilePath1, jsonFilePath2, "stylish"));
+        assertEquals(expectedStylish, Differ.generate(jsonFilePath1, jsonFilePath2));
     }
 
     @Test
     public void generateDiffYamlToStylishTest() throws Exception {
-        assertEquals(expectedStylish, Differ.generate(yamlFilePath1, yamlFilePath2, "stylish"));
+        assertEquals(expectedStylish, Differ.generate(yamlFilePath1, yamlFilePath2));
     }
 
     @Test
